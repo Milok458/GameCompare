@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Game Compare</title>
+        <link href="./css/search.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="flexContainer">
+            <img src="./imgs/icon.png" alt="App Logo" height="250" width="250"/>
+            <h1>Game Compare</h1>
+            <form class="card cardSizeL mx-3">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Search by:</label>
+                        <select id="searchTypes" class="form-control">
+                            <option value="default" selected>Select a Search Type</option>
+                            <option value="title">Title</option>
+                            <option value="year">Year</option>
+                            <option value="studio">Studio</option>
+                            <option value="price">Price</option>
+                            <option value="rating">Rating</option>
+                            <option value="popularity">Popularity</option>
+                            <option value="category">Category</option>
+                            <option value="genre">Genre</option>
+                            <option value="keyword">Keyword</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="options">
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="gamesContainer">
+            <div class="card gameCard mx-2">
+                <div class="card-body flexCard">
+                    <h5>The legend of Zelda Breath of the wild and the seven deadly sins</h5>
+                    <img src="https://i.pinimg.com/originals/91/96/79/91967917e73c8a51b492a598f083f9ec.jpg" alt="Box Art" width="100" height="162">
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./js/search.js"></script>
+</html>

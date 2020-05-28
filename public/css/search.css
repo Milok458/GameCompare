@@ -1,0 +1,59 @@
+html{
+    background-color: #77C3EC;
+}
+
+h1{
+    color: white;
+}
+
+.flexContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #77C3EC;
+}
+
+.gamesContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #77C3EC;
+}
+
+.flexCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameCard{
+    margin-bottom: 30px;
+    width: 280px;
+    height: 280px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.gameID{
+    visibility: hidden;
+}
+
+.cardSizeL{
+    margin-top: 20px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 600px) {
+    .cardSizeL{
+        margin-top: 20px;
+        width: 425px;
+        margin-bottom: 30px;
+    }
+}

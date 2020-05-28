@@ -1,0 +1,30 @@
+html{
+    background-color: #77C3EC;
+}
+
+button{
+    width: 100%;
+}
+
+.separator{
+    height: 10px;
+    width: 100%;
+}
+
+.flexContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    background-color: #77C3EC;
+}
+
+.cardSizeL{
+    width: 300px;
+}
+
+@media only screen and (min-width: 600px) {
+    .cardSizeL{
+        width: 500px;
+    }
+}
