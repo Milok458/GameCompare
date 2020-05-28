@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Admin: Edit Options</title>
+        <link href="./css/edit.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <a id="nav-srch" class="item" href="search.html">Search</a>
+            <a id="nav-profile" class="item" href="user.html">Profile</a>
+            <a id="nav-games" class="item" href="list.html">Games</a>
+            <a id="nav-edit" class="item" href="edit.html">Editor</a>
+            <a id="nav-comm" class="item" href="comments.html">Comments</a>
+        </nav>
+        <div class="flexContainer">
+            <form class="card cardSizeL mx-3">
+                <div class="card-body">
+                    <h2>Add New Game</h2>
+                    <div class="form-group">
+                        <label>Game Title:</label>
+                        <input type="text" class="form-control" id="titleNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Year Published:</label>
+                        <input type="text" class="form-control" id="yearNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Game Price:</label>
+                        <input type="text" class="form-control" id="priceNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Genre:</label>
+                        <input type="text" class="form-control" id="genreNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <input type="text" class="form-control" id="categoryNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Studio:</label>
+                        <input type="text" class="form-control" id="studioNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Metacritic Rating:</label>
+                        <input type="text" class="form-control" id="mcrNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>GameSpot Rating:</label>
+                        <input type="text" class="form-control" id="gsrNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>GamesRadar Rating:</label>
+                        <input type="text" class="form-control" id="grrNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Amazon Link:</label>
+                        <input type="text" class="form-control" id="amznNew"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Box Art Link:</label>
+                        <input type="text" class="form-control" id="boxArtNew"/>
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="flexContainer">
+            <form class="card cardSizeL mx-3">
+                <div class="card-body">
+                    <h2>Edit Game Values</h2>
+                    <div class="form-group">
+                        <label>Game ID:</label>
+                        <input type="text" class="form-control" id="idEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Game Title:</label>
+                        <input type="text" class="form-control" id="titleEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Year Published:</label>
+                        <input type="text" class="form-control" id="yearEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Game Price:</label>
+                        <input type="text" class="form-control" id="priceEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Genre:</label>
+                        <input type="text" class="form-control" id="genreEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <input type="text" class="form-control" id="categoryEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Studio:</label>
+                        <input type="text" class="form-control" id="studioEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Metacritic Rating:</label>
+                        <input type="text" class="form-control" id="mcrEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>GameSpot Rating:</label>
+                        <input type="text" class="form-control" id="gsrEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>GamesRadar Rating:</label>
+                        <input type="text" class="form-control" id="grrEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Amazon Link:</label>
+                        <input type="text" class="form-control" id="amznEdit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Box Art Link:</label>
+                        <input type="text" class="form-control" id="boxArtEdit"/>
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="flexContainer" id="lastContainer">
+            <form class="card cardSizeL mx-3">
+                <div class="card-body">
+                    <h2>Delete a Game</h2>
+                    <div class="form-group">
+                        <label>Game ID:</label>
+                        <input type="text" class="form-control" id="idDel"/>
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

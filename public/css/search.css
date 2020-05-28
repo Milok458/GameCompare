@@ -6,6 +6,10 @@ h1{
     color: white;
 }
 
+.item{
+    color: black;
+}
+
 .flexContainer{
     width: 100%;
     display: flex;

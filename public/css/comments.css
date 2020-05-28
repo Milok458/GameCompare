@@ -1,0 +1,52 @@
+html{
+    background-color: #77C3EC;
+}
+
+h1{
+    color: white;
+}
+
+button{
+    width: 100%;
+}
+
+.item{
+    color: black;
+}
+
+.separator{
+    height: 10px;
+    width: 100%;
+}
+
+.flexContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 25px;
+    background-color: #77C3EC;
+}
+
+.boxArt{
+    height: 300px;
+    width: 186px;
+}
+
+.commentContainer{
+    padding-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cardSizeL{
+    width: 90%;
+}
+
+@media only screen and (min-width: 768px) {
+    .cardSizeL{
+        width: 50%;
+    }
+}

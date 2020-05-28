@@ -1,0 +1,38 @@
+html{
+    background-color: #77C3EC;
+}
+
+.item{
+    color: black;
+}
+
+.gamesContainer{
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #77C3EC;
+}
+
+.flexCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameCard{
+    width: 280px;
+    height: 200px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .gameCard{
+        width: 480px;
+    }
+}
