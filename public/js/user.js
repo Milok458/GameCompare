@@ -57,7 +57,7 @@ function fetchUser(){
 
 function setInfo() {
     let name = document.querySelector('.name');
-    name.innerHTML = user.firstName + user.lastName;
+    name.innerHTML = user.firstName + " " + user.lastName;
 
     let username = document.querySelector('.username');
     username.innerHTML += user.userName;
