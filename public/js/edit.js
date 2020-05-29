@@ -160,6 +160,9 @@ function patchGame(body){
 
     body.averageRating = (body.metacriticRating + body.gameStopRating + body.gamesRadarRating)/3;
 
+    let form = document.querySelector("#edit");
+    form.reset();
+
     updateGame(body);
 }
 
@@ -188,7 +191,6 @@ function editListener(){
                     throw new Error( response.statusText );
                 })
                 .then( responseJSON => {
-                    form.reset();
                     patchGame(responseJSON);
                 })
                 .catch( err => {
