@@ -53,6 +53,18 @@ const gameSchema = mongoose.Schema({
     image:{
         type: String,
         required: true
+    },
+    studio:{
+        type: String,
+        required: true
+    },
+    points:{
+        type: Array,
+        required: true
+    },
+    comments:{
+        type: Array,
+        required: true
     }
 });
 
@@ -81,7 +93,7 @@ const Games = {
     },
     getGameById: function(idFind){
         return gameCollection
-            .find({id: idFind})
+            .findOne({id: idFind})
             .then(allGames => {
                 return allGames;
             })

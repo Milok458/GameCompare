@@ -38,6 +38,7 @@ const Users = {
                 return createdUser;
             })
             .catch( err => {
+                console.log(err);
                 return err;
             });
     },
@@ -53,7 +54,7 @@ const Users = {
     },
     updateUser: function(idFind, changes){
         return userCollection
-            .update({id: idFind}, {$set:changes})
+            .update({userName: idFind}, {$set:changes})
             .then(updatedUser => {
                 return updatedUser;
             })

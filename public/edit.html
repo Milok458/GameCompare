@@ -16,7 +16,7 @@
             <a id="nav-comm" class="item" href="comments.html">Comments</a>
         </nav>
         <div class="flexContainer">
-            <form class="card cardSizeL mx-3">
+            <form class="card cardSizeL mx-3" id="create">
                 <div class="card-body">
                     <h2>Add New Game</h2>
                     <div class="form-group">
@@ -65,14 +65,14 @@
                     </div>
                     <div class="form-group">
                         <label>Description:</label>
-                        <textarea id="desc" rows="4" class="form-control"></textarea>
+                        <textarea id="descNew" rows="4" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-info">Submit</button>
                 </div>
             </form>
         </div>
         <div class="flexContainer">
-            <form class="card cardSizeL mx-3">
+            <form class="card cardSizeL mx-3" id="edit">
                 <div class="card-body">
                     <h2>Edit Game Values</h2>
                     <div class="form-group">
@@ -125,14 +125,14 @@
                     </div>
                     <div class="form-group">
                         <label>Description:</label>
-                        <textarea id="desc" rows="4" class="form-control"></textarea>
+                        <textarea id="descEdit" rows="4" class="form-control"></textarea>
                     </div>
                     <button type="submit" class="btn btn-info">Submit</button>
                 </div>
             </form>
         </div>
         <div class="flexContainer" id="lastContainer">
-            <form class="card cardSizeL mx-3">
+            <form class="card cardSizeL mx-3" id="delete">
                 <div class="card-body">
                     <h2>Delete a Game</h2>
                     <div class="form-group">
@@ -144,4 +144,6 @@
             </form>
         </div>
     </body>
+    <script src="./js/edit.js"></script>
+    <script src="./js/navBar.js"></script>
 </html>

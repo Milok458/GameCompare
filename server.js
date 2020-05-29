@@ -5,8 +5,9 @@ const morgan = require('morgan');
 const uuid = require('uuid');
 const mongoose = require('mongoose');
 const keyChecker = require('./middleware/keyChecker');
-const {Users} = require('./models/userkModel');
-const {Games} = require('./models/gamekModel');
+const {Users} = require('./models/userModel');
+const {Games} = require('./models/gameModel');
+const {Comments} = require('./models/commentModel');
 const {DATABASE_URL, PORT} = require( './config' );
 
 const app = express();
@@ -23,9 +24,8 @@ app.post('/user', jsonParser, ( req, res ) => {
     let lastName = req.body.lastName;
     let password = req.body.password;
     let isAdmin = req.body.isAdmin;
-    let bookmarks = req.body.bookmarks;
 
-    if(!userName || !firstName || !lastName || !password || !isAdmin || !bookmarks){
+    if(!userName || !firstName || !lastName || !password || isAdmin === undefined){
         res.statusMessage = "One or more of these parameters is missing in the request!";
         return res.status(406).end();
     }
@@ -36,12 +36,16 @@ app.post('/user', jsonParser, ( req, res ) => {
         lastName : lastName,
         password : password,
         isAdmin: isAdmin,
-        bookmarks: bookmarks
+        bookmarks: []
     };
 
     Users
         .createUser(newUser)
         .then(result => {
+            if(result.errmsg){
+                res.statusMessage = "The 'username' is already in use!";
+                return res.status( 409 ).end();
+            }
             return res.status(201).json(result);
         })
         .catch(err => {
@@ -75,7 +79,7 @@ app.patch('/user', jsonParser, ( req, res ) => {
         });
 });
 
-app.get('/user/:username', (req, res) => {
+app.get('/users/:username', (req, res) => {
     let id = req.params.username;
 
     if(!id){
@@ -113,9 +117,10 @@ app.post('/game', jsonParser, ( req, res ) => {
     let category = req.body.category;
     let genre = req.body.genre;
     let image = req.body.image;
+    let studio = req.body.studio;
 
     if(!title || !description || !url || !metacriticRating || !gameStopRating || !gamesRadarRating
-        || !price || !year || !category || !genre || !image){
+        || !price || !year || !category || !genre || !image || !studio){
         res.statusMessage = "One or more of these parameters is missing in the request!";
         return res.status(406).end();
     }
@@ -132,7 +137,11 @@ app.post('/game', jsonParser, ( req, res ) => {
         year : year,
         category : category,
         genre : genre,
-        image: image
+        image: image,
+        studio: studio,
+        averageRating: (metacriticRating + gamesRadarRating + gameStopRating)/3,
+        comments: [],
+        points: []
     };
 
     Games
@@ -217,6 +226,70 @@ app.delete('/game/:id', ( req, res ) => {
         .then(result => {
             if(result.deletedCount === 0){
                 res.statusMessage = "That 'id' was not found in the list of games.";
+                return res.status(404).end();
+            }
+            return res.status(200).json(result);
+        })
+        .catch(err => {
+            res.statusMessage = "Something is wrong with the Database. Try again later. " +
+                err.message;
+            return res.status(500).end();
+        });
+});
+
+app.post('/comment', jsonParser, ( req, res ) => {
+    let userName = req.body.userName;
+    let gameId = req.body.gameId;
+    let comment = req.body.comment;
+    let gameName = req.body.gameName;
+
+    if(!userName || !gameId || !comment || !gameName){
+        res.statusMessage = "One or more of these parameters is missing in the request!";
+        return res.status(406).end();
+    }
+
+    let newComment = {
+        id: uuid.v4(),
+        userName : userName,
+        gameId : gameId,
+        comment : comment,
+        gameName : gameName
+    };
+
+    Comments
+        .createComment(newComment)
+        .then(result => {
+            return res.status(201).json(result);
+        })
+        .catch(err => {
+            res.statusMessage = "Something is wrong with the Database. Try again later. " +
+                err.message;
+            return res.status(500).end();
+        });
+});
+
+app.get('/comments', (req, res) => {
+    Comments
+        .getAllComments()
+        .then(result => {
+            return res.status(200).json(result);
+        })
+        .catch(err => {
+            res.statusMessage = "Something is wrong with the Database. Try again later. " +
+                err.message;
+            return res.status(500).end();
+        });
+});
+
+app.delete('/comment/:id', ( req, res ) => {
+
+    let id = req.params.id;
+
+    Comments
+        .removeComment(id)
+        .then(result => {
+            if(result.deletedCount === 0){
+                res.statusMessage = "That 'id' was not found in the list of comments.";
                 return res.status(404).end();
             }
             return res.status(200).json(result);
